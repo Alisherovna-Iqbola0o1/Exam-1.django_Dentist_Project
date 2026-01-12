@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Clinics{% endblock %}
+
+{% block content %}
+<h2 class="page-title">Our Clinics</h2>
+
+<div class="cards">
+    {% for clinic in clinics %}
+    <div class="card">
+        <h3>{{ clinic.name }}</h3>
+        <p>{{ clinic.location }}</p>
+        <a class="btn" href="{% url 'dentist_list' %}">View Dentists</a>
+    </div>
+    {% empty %}
+    <p>No clinics found.</p>
+    {% endfor %}
+</div>
+{% endblock %}

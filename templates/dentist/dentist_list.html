@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Dentists{% endblock %}
+
+{% block content %}
+<h2>Dentists</h2>
+<div class="cards">
+    {% for dentist in dentists %}
+    <div class="card">
+        <h3>{{ dentist.user.username }}</h3>
+        <p>Clinics:
+            {% for clinic in dentist.clinics.all %}
+                {{ clinic.name }}{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+        </p>
+        <a class="btn" href="{% url 'working_hours' %}">View Schedule</a>
+    </div>
+    {% empty %}
+    <p>No dentists found.</p>
+    {% endfor %}
+</div>
+{% endblock %}

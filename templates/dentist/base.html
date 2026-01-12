@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Dentist App{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'dentist/style.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<header>
+    <div class="container header-container">
+        <h1>Dentist Clinic System</h1>
+        <nav>
+            <a href="{% url 'clinic_list' %}">Clinics</a>
+            <a href="{% url 'dentist_list' %}">Dentists</a>
+            <a href="{% url 'working_hours' %}">Working Hours</a>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+    {% block content %}{% endblock %}
+</main>
+
+<footer>
+    &copy; 2026 Dentist App | All Rights Reserved
+</footer>
+</body>
+</html>

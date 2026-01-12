@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}Working Hours{% endblock %}
+
+{% block content %}
+<h2 class="page-title">Dentists Working Hours</h2>
+
+{% if hours %}
+<table class="pro-table">
+    <thead>
+        <tr>
+            <th>Dentist</th>
+            <th>Day</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for hour in hours %}
+        <tr>
+            <td>{{ hour.dentist.user.username }}</td>
+            <td>{{ hour.day }}</td>
+            <td>{{ hour.start_time }}</td>
+            <td>{{ hour.end_time }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>No working hours available.</p>
+{% endif %}
+{% endblock %}
